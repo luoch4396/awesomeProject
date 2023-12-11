@@ -16,12 +16,12 @@ const XinsanbanListUrl = "https://xinsanban.eastmoney.com/api/gg/list"
 /*
 目前的最后一页是2500
 */
-var maxPageSize int32 = 2500
+var maxPageSize = 2500
 
 /*
 开始执行页数
 */
-var currentPageSize int32 = 1
+var currentPageSize = 1
 
 /*
 执行间隔
@@ -52,14 +52,14 @@ func BatchGetXinsanbanListByPage(isProxy bool) {
 	}
 }
 
-func getXinsanbanListByPage(pageSize int32, isProxy bool) {
+func getXinsanbanListByPage(pageSize int, isProxy bool) {
 	var client *http.Client
 	if isProxy {
 		client = getProxyHttpClient()
 	} else {
 		client = getHttpClient()
 	}
-	url := XinsanbanListUrl + "?page_index=" + strconv.Itoa(int(pageSize)) + "&type=0&begin=&end=&securitycodes=&content=&sortRule=1"
+	url := XinsanbanListUrl + "?page_index=" + strconv.Itoa(pageSize) + "&type=0&begin=&end=&securitycodes=&content=&sortRule=1"
 	//url := "https://www.baidu.com"
 	println("请求地址:" + url)
 	req, err := http.NewRequest("GET", url, nil)
