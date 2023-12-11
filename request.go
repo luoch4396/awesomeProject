@@ -13,6 +13,8 @@ import (
 
 const XinsanbanListUrl = "https://xinsanban.eastmoney.com/api/gg/list"
 
+const XinsanbanDtlUrl = "https://xinsanban.eastmoney.com/Article/NoticeContent?id="
+
 /*
 目前的最后一页是2500
 */
@@ -94,7 +96,8 @@ func getXinsanbanListByPage(pageSize int, isProxy bool) {
 			continue
 		}
 		if strings.Contains(title, NeedMatchPart) {
-			needWriteData += title + segmentFlag + res.NoticeDate + segmentFlag + res.ArtCode + "\n"
+			needWriteData += title + segmentFlag + res.NoticeDate + segmentFlag + res.ArtCode +
+				segmentFlag + XinsanbanDtlUrl + res.ArtCode + "\n"
 		}
 	}
 	if needWriteData != "" {
