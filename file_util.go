@@ -19,7 +19,7 @@ func check(e error) {
 }
 
 func writeDataToTxtFile(needWriteString string) {
-	filename := "./xinsanban_list.txt"
+	filename := "./xinsanban_list.html"
 	var f *os.File
 	var err1 error
 	if checkFileIsExist(filename) {

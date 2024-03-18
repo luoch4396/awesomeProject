@@ -97,7 +97,7 @@ func getXinsanbanListByPage(pageSize int, isProxy bool) {
 		}
 		if strings.Contains(title, NeedMatchPart) {
 			needWriteData += title + segmentFlag + res.NoticeDate + segmentFlag + res.ArtCode +
-				segmentFlag + XinsanbanDtlUrl + res.ArtCode + "\n"
+				segmentFlag + "<a href='" + XinsanbanDtlUrl + res.ArtCode + "' target = '_blank'>网页</a><br>" + "\n"
 		}
 	}
 	if needWriteData != "" {
